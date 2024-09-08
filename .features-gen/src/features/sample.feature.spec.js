@@ -1,4 +1,4 @@
-/** Generated from: sample.feature */
+/** Generated from: src\features\sample.feature */
 import { test } from "playwright-bdd";
 
 test.describe("Login and Employee Management", () => {
@@ -28,7 +28,7 @@ test.describe("Login and Employee Management", () => {
 
 test.use({
   $test: ({}, use) => use(test),
-  $uri: ({}, use) => use("sample.feature"),
+  $uri: ({}, use) => use("src\\features\\sample.feature"),
   $bddFileMeta: ({}, use) => use(bddFileMeta),
 });
 

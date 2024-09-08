@@ -1,6 +1,6 @@
 import { createBdd } from 'playwright-bdd';
-import { LoginPage } from './loginPage'; // Ruta correcta a page.ts
-import { PIMPage } from './pimPage'; // Ruta correcta a page.ts
+import { LoginPage } from '../pages/loginPage';
+import { PIMPage } from '../pages/pimPage';
 
 const { Given, When, Then } = createBdd();
 let loginPage;
