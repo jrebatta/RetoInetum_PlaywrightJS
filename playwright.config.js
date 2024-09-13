@@ -15,8 +15,9 @@ export default defineConfig({
         trace: 'on-first-retry',
 
         // Record video only when retrying a test for the first time.
-        video: 'on-first-retry'
+        video: 'on'
     },
+    outputDir: 'videos/',
     testDir,
     reporter: 'html',
 });

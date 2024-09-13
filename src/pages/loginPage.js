@@ -8,7 +8,7 @@ export class LoginPage {
     }
 
     async openUrl() {
-        await this.page.goto(this.selectors.url);
+        await this.page.goto(this.selectors.url, { timeout: 60000, waitUntil: 'load' });
     }
 
     async login(username, password) {

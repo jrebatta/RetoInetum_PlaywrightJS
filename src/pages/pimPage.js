@@ -33,8 +33,9 @@ export class PIMPage {
 
     async verifyEmployeeNameInList() {
         await this.page.waitForSelector(this.selectors.inputEmployeeID, { state: 'visible' });
+        await this.page.waitForTimeout(2000);
         this.employeeID = await this.page.inputValue(this.selectors.inputEmployeeID);
-        console.log('Employee IDDDDD: ' + this.employeeID);
+        console.log('Employee ID: ' + this.employeeID);
         await this.page.waitForSelector(this.selectors.EmployeeList);
         await this.page.click(this.selectors.EmployeeList);
         if (this.employeeID) {
@@ -43,8 +44,10 @@ export class PIMPage {
             throw new Error('Employee ID is not set.');
         }
         await this.page.click(this.selectors.btnSearchList);
+        await this.page.keyboard.press('PageDown');
+        await this.page.waitForTimeout(2000);
         const displayedEmployeeID = await this.page.textContent(this.selectors.EmployeeIDList);
-        console.log("TEXTO: ",displayedEmployeeID, this.employeeID)
+        console.log("IDs: ",displayedEmployeeID, this.employeeID)
         expect(displayedEmployeeID).toBe(this.employeeID);
     }
 }
