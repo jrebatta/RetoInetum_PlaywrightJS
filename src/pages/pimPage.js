@@ -27,6 +27,7 @@ export class PIMPage {
 
     async verifyEmployeeName(expectedName) {
         await this.page.waitForSelector(this.selectors.firstLastName);
+        await this.page.waitForTimeout(3000);
         const name = await this.page.textContent(this.selectors.firstLastName);
         expect(name).toContain(expectedName);
     }
